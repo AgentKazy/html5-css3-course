@@ -47,15 +47,14 @@ body {
   color: #555;
 }
 
-.test {
-  background-color: teal;
-  padding: 100px;
-  /* width: 1000px; */
-  /* max-width: 1000px; */
+/* LAYOUT */
+.hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
-  max-width: 50rem;
-  padding: 4rem;
-  font-size: 2rem;
-  color: #fff;
-  /* 1rem = 16px -> 50rem */
+.hero-img {
+  width: 100%;
 }
