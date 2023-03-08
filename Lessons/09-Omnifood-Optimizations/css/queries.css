@@ -127,6 +127,7 @@ Example: 1350 / 16 = 84.375 */
   /* MOBILE NAVIGATION */
   .btn-mobile-nav {
     display: block;
+    z-index: 9999;
   }
 
   .main-nav {

@@ -11,10 +11,19 @@
 //   h1.style.padding = "5rem";
 // });
 
-const yearEl = document.querySelector(".year");
+// Set current year
+const yearElm = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
-console.log(currentYear);
-yearEl.textContent = currentYear;
+// console.log(currentYear);
+yearElm.textContent = currentYear;
+
+// Make mobile navigation work
+const btnNavElm = document.querySelector(".btn-mobile-nav");
+const headerElm = document.querySelector(".header");
+btnNavElm.addEventListener("click", (e) => {
+  headerElm.classList.toggle("nav-open");
+});
+
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 function checkFlexGap() {
