@@ -5,7 +5,7 @@
 // console.log(myName);
 // console.log(h1);
 
-// h1.addEventListener("click", (e) => {
+// h1.addEventListener("click", () => {
 //   h1.textContent = myName;
 //   h1.style.backgroundColor = "red";
 //   h1.style.padding = "5rem";
@@ -20,8 +20,40 @@ yearElm.textContent = currentYear;
 // Make mobile navigation work
 const btnNavElm = document.querySelector(".btn-mobile-nav");
 const headerElm = document.querySelector(".header");
-btnNavElm.addEventListener("click", (e) => {
+btnNavElm.addEventListener("click", () => {
   headerElm.classList.toggle("nav-open");
+});
+
+///////////////////////////////////////////////////////////
+//Smooth scrolling animation
+const allLinks = document.querySelectorAll("a:link");
+console.log(allLinks);
+allLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+
+    // Scroll back to top
+    if (href === "#") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    // Scroll to link
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionElm = document.querySelector(href);
+      sectionElm.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+
+    // Close mobile navigation
+    if (link.classList.contains("main-nav-link")) {
+      headerElm.classList.toggle("nav-open");
+    }
+  });
 });
 
 ///////////////////////////////////////////////////////////
