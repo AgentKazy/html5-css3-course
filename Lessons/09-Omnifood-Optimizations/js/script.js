@@ -11,12 +11,14 @@
 //   h1.style.padding = "5rem";
 // });
 
+///////////////////////////////////////////////////////////
 // Set current year
 const yearElm = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 // console.log(currentYear);
 yearElm.textContent = currentYear;
 
+///////////////////////////////////////////////////////////
 // Make mobile navigation work
 const btnNavElm = document.querySelector(".btn-mobile-nav");
 const headerElm = document.querySelector(".header");
@@ -55,6 +57,30 @@ allLinks.forEach((link) => {
     }
   });
 });
+
+///////////////////////////////////////////////////////////
+// Sticky navigation
+const sectionHeroElm = document.querySelector(".section-hero");
+const obs = new IntersectionObserver(
+  (entries) => {
+    const ent = entries[0];
+    console.log(ent);
+    if (!ent.isIntersecting) {
+      document.body.classList.add("sticky");
+    }
+
+    if (ent.isIntersecting) {
+      document.body.classList.remove("sticky");
+    }
+  },
+  {
+    // In the viewport
+    root: null,
+    threshold: 0,
+    rootMargin: "-80px",
+  }
+);
+obs.observe(sectionHeroElm);
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
